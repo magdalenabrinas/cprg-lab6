@@ -10,8 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-
-
+var modelName = "XYZ";
+var duration = 0;
 
 
 
@@ -26,10 +26,14 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+function recalculate() {
+    let costLabel = document.getElementById("calculated-cost");
 
+    let costPerDuration = modelName === "XYZ" ? 100 : 213;
+    let totalCost = duration * costPerDuration;
 
-
-
+    costLabel.innerHTML = totalCost
+}
 
 
 /****************** model button logic ******************/
@@ -42,11 +46,26 @@ You are encouraged to use the provided naming convention for ease of review.
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
 
+var modelButton = document.getElementById("model-button");
 
+function changeModel() {
+    let modelTextElement = document.getElementById("model-text");
+
+    if (modelName === "XYZ") {
+        modelName = "CPRG";
+        modelTextElement.innerHTML = "Model CPRG";
+    } else {
+        modelName = "XYZ";
+        modelTextElement.innerHTML = "Model XYZ";
+    }
+
+    recalculate()
+}
+
+modelButton.addEventListener("click", changeModel);
 
 
 
@@ -64,6 +83,20 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+const changeDurationButton = document.getElementById("duration-button")
+changeDurationButton.addEventListener("click", changeDuration);
 
+function changeDuration(){
+    let durationTextElement = document.getElementById("duration-text");
 
+    duration = prompt("Input duration", duration);
 
+    // if (isNaN(duration)) {
+    //     duration = 0;
+    // }
+    duration = isNaN(duration) ? 0 : duration;
+
+    durationTextElement.innerHTML = duration;
+
+    recalculate()
+}
