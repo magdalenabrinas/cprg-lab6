@@ -32,7 +32,7 @@ function recalculate() {
     let costPerDuration = modelName === "XYZ" ? 100 : 213;
     let totalCost = duration * costPerDuration;
 
-    costLabel.innerHTML = totalCost
+    costLabel.innerHTML = totalCost;
 }
 
 
@@ -62,7 +62,7 @@ function changeModel() {
         modelTextElement.innerHTML = "Model XYZ";
     }
 
-    recalculate()
+    recalculate();
 }
 
 modelButton.addEventListener("click", changeModel);
@@ -83,7 +83,7 @@ modelButton.addEventListener("click", changeModel);
 */
 
 // INSERT YOUR CODE HERE
-const changeDurationButton = document.getElementById("duration-button")
+const changeDurationButton = document.getElementById("duration-button");
 changeDurationButton.addEventListener("click", changeDuration);
 
 function changeDuration(){
@@ -98,5 +98,5 @@ function changeDuration(){
 
     durationTextElement.innerHTML = duration;
 
-    recalculate()
+    recalculate();
 }
